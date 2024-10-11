@@ -61,9 +61,12 @@ def _plot_two_category_confusion_matrix(
     # If the outcome category is phoneme, group the phonemes by voicing and type
     if "phoneme" in outcomeCategory.lower():
         phonemes = PHONEME_INFO_DF_BASIC.sort_values(["type", "voiced"]).phoneme.values
+        if "AH" not in per_frame_df[outcomeCategory].unique():
+            phonemes = np.delete(phonemes, np.where(phonemes == "AH"))
         keeplocs = ~np.logical_or(
             np.logical_or(
-                np.logical_or(phonemes == "[PAD]", phonemes == "ZH"), phonemes == "SIL"
+                np.logical_or(phonemes == "[PAD]", phonemes == "ZH"),
+                phonemes == "SIL",
             ),
             phonemes == "[UNK]",
         )

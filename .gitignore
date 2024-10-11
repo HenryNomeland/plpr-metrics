@@ -1,1 +1,6 @@
 *pycache*
+*.db
+*.html
+*.csv
+*.json
+*vscode*
