@@ -14,7 +14,11 @@ def execute_sql(connection, script):
 
 if __name__ == "__main__":
     script = sys.argv[1]
-    conn = duckdb.connect(".\\pronunciation.db")
+    conn = duckdb.connect(r"Z:\ASUTransfer\FullCorpus\pronunciation.db")
     execute_sql(conn, script)
-    conn.table("frames").show()
+    # conn.table("testing").show()
+    print("Measurements Table")
+    conn.table("measurements").show()
+    print("Frames Table")
+    conn.table("Frames").show()
     conn.close()

@@ -74,7 +74,7 @@ def _plot_two_category_confusion_matrix(
 
         fracmatrix = fracmatrix.round().loc[outcomecategories]
 
-        fracmatrix = fracmatrix[list(outcomecategories) + ["SIL", "[UNK]"]]
+        fracmatrix = fracmatrix[list(outcomecategories) + ["SIL", "UNK"]]
     else:
         outcomecategories = list(fracmatrix.index)
         fracmatrix = fracmatrix.round().loc[outcomecategories]
